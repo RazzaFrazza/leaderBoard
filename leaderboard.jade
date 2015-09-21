@@ -1,0 +1,20 @@
+head
+ title 
+  | Leaderboard
+body
+ h1
+  | Leaderboard
+ +leaderboard
+template(name='leaderboard')
+ ul
+  each player
+   li(class='player {{selectedClass}}') #{name}: #{score}
+ if showSelectedPlayer
+  li
+   | Selected Player: #{showSelectedPlayer.name}
+ input(type='button' id='inputButton' class='increment' value='Give 5 Points')
+ input(type='button' id='inputButton' class='decrement' value='Take 5 Points')
+ template(name='addPlayerForm')
+  form
+   input(type='text' name='playerName')
+   input(type='submit' value='Add Player')
